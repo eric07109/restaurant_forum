@@ -5,7 +5,13 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'bootstrap-sass'
+gem 'sass-rails', '~> 5.0'
+gem 'jquery-rails'
+
+
 gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 gem 'ffaker'
 

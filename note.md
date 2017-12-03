@@ -1,2 +1,2 @@
 #Notes on Ruby 
-* What is 'params' for Ruby?
+* What is 'params' in Ruby?

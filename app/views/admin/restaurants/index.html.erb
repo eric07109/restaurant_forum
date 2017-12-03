@@ -1,13 +1,47 @@
-<h1>餐廳後台</h1>
-<ul>
-	<% @restaurants.each do |restaurant| %>
-	<li>
-		<%= restaurant.name%>
-		<%= link_to 'Show', admin_restaurant_path(restaurant) %>
-		<%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %>
-		<%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data: {confirm: "Are you sure?"} %>
-	</li>
-	<% end %>
-	<%= paginate @restaurants%>
-</ul>
-<%= link_to 'New Restaurant', new_admin_restaurant_path%>
+<div class="container">
+	<div class="panel panel-default panel-table">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col col-xs-6">
+					<h3 class="panel-title">餐廳後台列表</h3>
+				</div>
+				<div class="col col-xs-6 text-right">
+					<button type="button" class="btn btn-sm btn-create"><%= link_to '新增餐廳', new_admin_restaurant_path%></button>
+				</div>
+			</div>
+		</div>
+		<div class="panel-body">
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Tel</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @restaurants.each do |restaurant| %>
+						<tr>
+							<th scope = "row"><%= restaurant.id%></th>
+							<td><%= restaurant.name%></td>
+							<td><%= restaurant.tel%></td>
+							<td>
+								<%= link_to 'Show', admin_restaurant_path(restaurant) %>
+								<%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %>
+								<%= link_to 'Delete', admin_restaurant_path(restaurant), method: :delete, data: {confirm: "Are you sure?"} %>
+							</td>
+						</tr>
+						<% end %>
+					</tbody>	
+				</table>
+			</div>
+		</div>
+		<div class="panel-footer">
+			<div class="col-xs-12">
+				<%= paginate @restaurants, :theme => 'twitter-bootstrap-4'%>
+			</div>
+		</div>
+	</div>
+</div>
