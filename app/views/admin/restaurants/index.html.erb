@@ -3,7 +3,11 @@
 		<div class="panel-heading">
 			<div class="row">
 				<div class="col col-xs-6">
-					<h3 class="panel-title">餐廳後台列表</h3>
+					<h3 class="panel-title">餐廳列表</h3>
+					<div>
+					  <%= link_to 'Restaurant', admin_restaurants_path %> |
+					  <%= link_to 'Categories', admin_categories_path %>
+					</div>
 				</div>
 				<div class="col col-xs-6 text-right">
 					<button type="button" class="btn btn-sm btn-create"><%= link_to '新增餐廳', new_admin_restaurant_path%></button>
@@ -41,9 +45,7 @@
 			</div>
 		</div>
 		<div class="panel-footer">
-			<div class="col-xs-12">
-				<%= paginate @restaurants, :theme => 'twitter-bootstrap-4'%>
-			</div>
+			<%= paginate @restaurants, :theme => 'twitter-bootstrap-4'%>
 		</div>
 	</div>
 </div>
