@@ -17,6 +17,7 @@
 						<tr>
 							<th>#</th>
 							<th>Name</th>
+							<th>Category</th>
 							<th>Tel</th>
 							<th>Actions</th>
 						</tr>
@@ -26,6 +27,7 @@
 						<tr>
 							<th scope = "row"><%= restaurant.id%></th>
 							<td><%= restaurant.name%></td>
+							<td><%= restaurant.category.name%></td>
 							<td><%= restaurant.tel%></td>
 							<td>
 								<%= link_to 'Show', admin_restaurant_path(restaurant) %>
