@@ -12,12 +12,15 @@
 				<div class="col col-xs-6 text-right">
 					<div class="form-inline">
 						<%= form_for [:admin, @category] do |f| %>
-						<div class = "form-group">
-							<%= f.text_field :name, placeholder: "Category Name", class: "form-control" %>
-						</div>
-						<%= f.submit class: "btn btn-primary"%>
-						<% end %>
+							<div class = "form-group">
+								<%= f.text_field :name, placeholder: "Category Name", class: "form-control" %>
+							</div>
+							<%= f.submit class: "btn btn-primary"%>
+						<% end %>	
 					</div>
+						<% if @category.errors.any? %>
+  							<%= @category.errors.full_messages.to_sentence %>
+						<% end %>
 				</div>
 			</div>
 		</div>
