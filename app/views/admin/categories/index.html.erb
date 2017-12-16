@@ -9,27 +9,29 @@
 					  <%= link_to 'Categories', admin_categories_path %>
 					</div>
 				</div>
-				<div class="col col-xs-6 text-right">
-					<div class="form-inline">
-						<%= form_for [:admin, @category] do |f| %>
-							<div class = "form-group">
-								<%= f.text_field :name, placeholder: "Category Name", class: "form-control" %>
-							</div>
-							<%= f.submit class: "btn btn-primary"%>
-						<% end %>	
-					</div>
-						<% if @category.errors.any? %>
-  							<%= @category.errors.full_messages.to_sentence %>
-						<% end %>
-				</div>
 			</div>
 		</div>
 		<div class="panel-body">
+			<div class="row">
+				<div class="col col-xs-6">
+					<div class="form-inline">
+					<%= form_for [:admin, @category] do |f| %>
+						<div class = "form-group">
+							<%= f.text_field :name, placeholder: "Category Name", class: "form-control" %>
+						</div>
+						<%= f.submit class: "btn btn-primary"%>
+					<% end %>	
+					</div>
+					<% if @category.errors.any? %>
+							<%= @category.errors.full_messages.to_sentence %>
+					<% end %>
+				</div>
+			</div>
+			<br>
 			<div class="table-responsive">
 				<table class="table table-bordered">
 					<thead>
 						<tr>
-							<th>#</th>
 							<th>Category Name</th>
 							<th>#</th>
 						</tr>
@@ -37,7 +39,6 @@
 					<tbody>
 						<% @categories.each do |category| %>
 						<tr>
-							<td scope = "row"><%= category.id%></td>
 							<td><%= category.name%></td>
 							<td><%= link_to 'Edit', admin_categories_path(id: category.id)%> <%= link_to 'Delete', admin_category_path(category), method: :delete, data: { confirm: "Are you sure?"}%></td>
 						</tr>

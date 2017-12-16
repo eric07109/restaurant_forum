@@ -9,12 +9,15 @@
 					  <%= link_to 'Categories', admin_categories_path %>
 					</div>
 				</div>
-				<div class="col col-xs-6 text-right">
-					<button type="button" class="btn btn-sm btn-create"><%= link_to '新增餐廳', new_admin_restaurant_path%></button>
-				</div>
 			</div>
 		</div>
 		<div class="panel-body">
+			<div class="row">
+				<div class="col col-xs-6">
+					<button type="button" class="btn btn-md btn-create"><%= link_to '新增餐廳', new_admin_restaurant_path%></button>
+				</div>
+			</div>
+			<br>
 			<div class="table-responsive">
 				<table class="table table-bordered">
 					<thead>
