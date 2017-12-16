@@ -31,11 +31,7 @@
 						<tr>
 							<th scope = "row"><%= restaurant.id%></th>
 							<td><%= restaurant.name%></td>
-							<td>
-								<% unless restaurant.category.nil? %>
-								<%= restaurant.category.name%>
-								<% end %>									
-							</td>
+							<td><%= restaurant.category_name%></td>
 							<td><%= restaurant.tel%></td>
 							<td>
 								<%= link_to 'Show', admin_restaurant_path(restaurant) %>
