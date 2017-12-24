@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   
   root "restaurants#index"
 
-  resources :restaurants, only: [:index, :show]
+  resources :restaurants, only: [:index, :show] do 
+    resources :comments, only: [:create, :destroy]
+  end
+
 
   resources :categories, only: :show
 
