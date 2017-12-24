@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
 		redirect_to restaurant_path(@restaurant)
 	end
 
+	#can a user submit comments more than 1 time to the same restaurant?
+	
 	private
 
 	def comment_params
