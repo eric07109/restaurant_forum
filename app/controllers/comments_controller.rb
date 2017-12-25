@@ -9,7 +9,18 @@ class CommentsController < ApplicationController
 	end
 
 	#can a user submit comments more than 1 time to the same restaurant?
-	
+
+	def destroy
+		@restaurant = Restaurant.find(params[:restaurant_id])
+		@comment = Comment.find(params[:id])
+
+		if current_user.admin?
+			@comment.destroy
+			redirect_to restaurant_path(@restaurant)
+		end
+	end
+
+
 	private
 
 	def comment_params
