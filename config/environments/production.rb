@@ -88,4 +88,10 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # to enable assets to persist in production deployment on Heroku
+  # reference to the link for the source of this improvement: https://stackoverflow.com/questions/18324063/rails-4-images-not-loading-on-heroku
+  config.serve_static_assets = true
+  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
+  config.assets.compile = true
 end
