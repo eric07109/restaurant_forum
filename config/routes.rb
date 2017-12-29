@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations'}
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   
   root "restaurants#index"
@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update, :create]
 
   resources :categories, only: :show
 

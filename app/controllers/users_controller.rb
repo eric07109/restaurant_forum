@@ -11,9 +11,14 @@ class UsersController < ApplicationController
 		if current_user != @user
 			redirect_to user_path(current_user)
 			flash[:alert] = "you cannot edit someone else profile"
-		else
-			@user.update(user_params)
+		end
+
+		if @user.update(user_params)
 			redirect_to user_path(@user)
+			flash[:notice] = "user was successfully updated"
+		else
+			redirect_to user_path(@user)
+			flash[:alert] = "user cannot be updated because you missed some fields"
 		end
 	end
 
