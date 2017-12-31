@@ -8,4 +8,16 @@
 			<%= link_to('Update', edit_user_path(@user.id)) if @user == current_user%>
 		</div>
 	</div>
+	<br>
+	<div class="panel panel-default">
+		<div class="panel-heading">我所評論過的餐廳</div>
+		<div class="panel-body">
+			<% @commented_restaurants.each do |restaurant| %>
+				<div class="my-restaurant">
+					<div><%= link_to image_tag(restaurant.image, width: '175px'), restaurant_path(restaurant.id)%></div>
+					<p class="text-primary"><%= restaurant.name%></p>
+				</div>
+			<%end%>
+		</div>
+	</div>
 </div>
