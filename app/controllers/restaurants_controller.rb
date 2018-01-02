@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+	before_action :set_user, only: [:show, :dashboard]
 
 	def index
 		@restaurants = Restaurant.page(params[:page]).per(9)
@@ -6,7 +7,6 @@ class RestaurantsController < ApplicationController
 	end
 	
 	def show
-		@restaurant = Restaurant.find(params[:id])
 		@comment = Comment.new
 	end
 
@@ -14,5 +14,14 @@ class RestaurantsController < ApplicationController
 		@recent_restaurants = Restaurant.order(created_at: :desc).limit(10)
 		@recent_comments= Comment.order(created_at: :desc).limit(10)
 	end
+
+	def dashboard
+	end
+
+	private
+	def set_user
+		@restaurant = Restaurant.find(params[:id])
+	end
+
 
 end
