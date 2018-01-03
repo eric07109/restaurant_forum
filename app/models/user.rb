@@ -6,8 +6,13 @@ class User < ApplicationRecord
 
   validates_presence_of :name, :email
 
+  #For Comment implementation
   has_many :comments, dependent: :restrict_with_error
-  has_many :restaurants, through: :comments
+  has_many :commented_restaurants, through: :comments, source: :restaurant
+
+  #For Favourite Restaurant Implementation
+  has_many :favourites, dependent: :destroy
+  has_many :favourite_restaurants, through: :favourites, source: :restaurant
 
   mount_uploader :avatar, UserAvatarUploader
 
