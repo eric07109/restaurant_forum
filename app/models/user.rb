@@ -14,6 +14,12 @@ class User < ApplicationRecord
   has_many :favourites, dependent: :destroy
   has_many :favourite_restaurants, through: :favourites, source: :restaurant
 
+  #For Liked Restaurant Implementation
+  has_many :likes, dependent: :destroy
+  has_many :liked_restaurants, through: :likes, source: :restaurant
+
+
+
   mount_uploader :avatar, UserAvatarUploader
 
   def admin?
