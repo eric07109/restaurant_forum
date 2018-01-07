@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-	before_action :set_user, only: [:show, :dashboard, :favourite, :unfavourite]
+	before_action :set_user, only: [:show, :dashboard, :favourite, :unfavourite, :like, :unlike]
 
 	def index
 		@restaurants = Restaurant.page(params[:page]).per(9)
@@ -28,6 +28,15 @@ class RestaurantsController < ApplicationController
 		redirect_back(fallback_location: root_path)
 	end
 
+	def like
+		Like.create(restaurant: @restaurant, user: current_user)
+		redirect_back(fallback_location: root_path)
+	end
+
+	def unlike
+		Like.where(restaurant: @restaurant, user: current_user).destroy_all
+		redirect_back(fallback_location: root_path)
+	end
 
 	private
 	def set_user
