@@ -9,6 +9,7 @@
 				<h3 id="restaurant-label"><%= link_to restaurant.name, restaurant_path(restaurant)%></h3>
 				<p class="label label-default"><%= restaurant.category_name %></p>
 				<%= render partial: "shared/favourite.html.erb", locals: {restaurant: restaurant}%>
+				<%= render partial: "shared/like.html.erb", locals: {restaurant: restaurant}%>
 				<p><%= truncate(restaurant.description, length: 60)%></p>
 			</div>
 		</div>		
