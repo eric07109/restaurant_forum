@@ -11,4 +11,8 @@ class Restaurant < ApplicationRecord
 	#Favourite Implementation
 	has_many :favourites, dependent: :destroy
 	has_many :favourite_users, through: :favourites, source: :user
+
+	def is_favourite?(user)
+		self.favourite_users.include?(user)
+	end
 end
