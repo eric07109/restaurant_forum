@@ -1,5 +1,9 @@
 <% if not restaurant.is_favourite?(current_user)%>
-	<%= link_to "Favourite", favourite_restaurant_path(restaurant), method: :post, class: "btn btn-primary"%>
+	<%= link_to favourite_restaurant_path(restaurant), method: :post, :class => "btn btn-outline-secondary" do %>
+		<span class="glyphicon glyphicon-heart-empty" id="favourite-heart"></span>
+	<%end%>
 <%else%>
-	<%= link_to "Unfavourite", unfavourite_restaurant_path(restaurant), method: :post, class: "btn btn-danger"%>
+	<%= link_to unfavourite_restaurant_path(restaurant), method: :post, :class => "btn btn-outline-primary" do %>
+		<span class="glyphicon glyphicon-heart" id="favourite-heart"></span>
+	<%end%>
 <%end%>
