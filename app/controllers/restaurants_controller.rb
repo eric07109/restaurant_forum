@@ -38,6 +38,14 @@ class RestaurantsController < ApplicationController
 		redirect_back(fallback_location: root_path)
 	end
 
+	def ranking
+		@top_restaurants = Restaurant.joins(:favourites).
+			select('restaurants.id, restaurants.name, restaurants.description, restaurants.image, count(favourites.id) as favourite_count')
+			.group('restaurants.id')
+			.order('favourite_count')
+			.limit(10)
+	end
+
 	private
 	def set_user
 		@restaurant = Restaurant.find(params[:id])
