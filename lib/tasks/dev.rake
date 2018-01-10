@@ -46,5 +46,15 @@ namespace :dev do
 		puts "totally #{Comment.count} comments are created"
 	end
 
+	task fake_favourite: :environment do
+		100.times do |i|
+			Favourite.create!(
+				user_id: User.all.sample.id,
+				restaurant_id: Restaurant.all.sample.id
+				)
+		end
+		puts "100 favourites are created"
+	end
+
 
 end
