@@ -12,7 +12,8 @@
 				<% @restaurants.each do |restaurant| %>
 					<div class="row">
 						<div class="col-md-4">
-							<%= image_tag restaurant.image, size: "300x200" %>
+							<%= image_tag "/fake_images/00#{rand(0..9)}.jpg", size: "300x200" %>
+							<%#= image_tag restaurant.image, size: "300x200" %>
 						</div>
 						<div class="col-md-8">
 							<h4><%= restaurant.name%></h4>
