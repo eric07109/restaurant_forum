@@ -39,11 +39,7 @@ class RestaurantsController < ApplicationController
 	end
 
 	def ranking
-		@top_restaurants = Restaurant.joins(:favourites).
-			select('restaurants.id, restaurants.name, restaurants.description, restaurants.image, count(favourites.id) as favourite_count')
-			.group('restaurants.id')
-			.order('favourite_count')
-			.limit(10)
+		@restaurants = Restaurant.all.order('favourites_count desc').limit(10)
 	end
 
 	private
