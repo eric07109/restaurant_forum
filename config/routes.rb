@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   resources :categories, only: :show
 
+  resources :followships, only: [:create, :destroy]
+
   namespace :admin do
   	resources :restaurants
   	resources :categories
