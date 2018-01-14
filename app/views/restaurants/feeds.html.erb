@@ -1,9 +1,5 @@
 <div class="container">
-	<ul class="nav nav-tabs nav-justified">
-		<li role="presentation"><%= link_to '首頁', root_path %></li>
-		<li role="presentation" class="active"><%= link_to '最新動態', feeds_restaurants_path %></li>
-		<li role="presentation"><%= link_to 'Top10餐廳', ranking_restaurants_path %></li>
-	</ul>
+	<%= render partial: "shared/navbar"%>
 	<div class="nav-page">
 		<br>
 		<div class="row">

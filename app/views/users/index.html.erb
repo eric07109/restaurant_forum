@@ -1,10 +1,14 @@
-<ul>
+<div class="container">
+	<%= render partial: "shared/navbar"%>
+</div>
 
+
+
+<ul>
   <% @users.each do |user| %>
     <li>
       <%= user.name %>
 	  <%= render partial: "shared/follow", locals: {user: user}%>
     </li>
   <% end %>
-
 </ul>
