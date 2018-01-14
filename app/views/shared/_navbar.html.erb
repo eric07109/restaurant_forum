@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs nav-justified">
-	<li role="presentation" class="<%= current_class?(root_path)%>"><%= link_to '首頁', root_path %></li>
-	<li role="presentation" class="<%= current_class?(feeds_restaurants_path)%>"><%= link_to '最新動態', feeds_restaurants_path %></li>
-	<li role="presentation" class="<%= current_class?(ranking_restaurants_path)%>"><%= link_to 'Top10餐廳', ranking_restaurants_path %></li>
-	<li role="presentation" class="<%= current_class?(users_path)%>"><%= link_to '美食達人', users_path%></li>
+	<li role="presentation" class="<%= current_nav_page?(root_path)%>"><%= link_to '首頁', root_path %></li>
+	<li role="presentation" class="<%= current_nav_page?(feeds_restaurants_path)%>"><%= link_to '最新動態', feeds_restaurants_path %></li>
+	<li role="presentation" class="<%= current_nav_page?(ranking_restaurants_path)%>"><%= link_to 'Top10餐廳', ranking_restaurants_path %></li>
+	<li role="presentation" class="<%= current_nav_page?(users_path)%>"><%= link_to '美食達人', users_path%></li>
 </ul>
