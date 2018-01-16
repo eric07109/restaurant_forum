@@ -1,23 +1,90 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-6"><%= image_tag @user.avatar, width: '350px'%></div>
-		<div class="col-md-6">
+		<div class="col-md-3"><%= image_tag @user.avatar, width: '200px'%></div>
+		<div class="col-md-9">
 			<h2><%= @user.name%></h2>
 			<h4><%= @user.email %></h4>
+			<p><%= "#{@commented_restaurants.count}個已評論餐廳 #{@favourite_restaurants.count}個收藏餐廳 #{@followings.count}個Following #{@followers.count}個Followers" %></p>
 			<p><%= @user.intro%></p>
-			<%= link_to('Update', edit_user_path(@user.id)) if @user == current_user%>
+			<%= link_to('Edit Profile', edit_user_path(@user.id), class: "btn btn-primary")if @user == current_user%>
 		</div>
 	</div>
-	<br>
-	<div class="panel panel-default">
-		<div class="panel-heading">我所評論過的餐廳</div>
-		<div class="panel-body">
-			<% @commented_restaurants.each do |restaurant| %>
-				<div class="my-restaurant">
-					<div><%= link_to image_tag(restaurant.image, width: '175px'), restaurant_path(restaurant.id)%></div>
-					<p class="text-primary"><%= restaurant.name%></p>
+	<hr>
+	<div class="row">
+		<div class="col-md-3 user-profile-follow">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading"><%= "#{@followings.count}個Following"%></div>
+					<table class="table-body">
+						<tbody>
+							<% @followings.each do |following| %>
+								<tr scope="row" class="my-followings">
+									<td class="user-avatar">
+										<%= image_tag "http://via.placeholder.com/350x150", size:"75" %>
+										<%#= image_tag following.avatar, size: "30", class: "img-rounded" %>
+									</td>
+									<td class="text-primary"><%= following.name%></td>
+								</tr>
+							<%end%>
+						</tbody>
+						
+					</table>
 				</div>
-			<%end%>
+			</div>
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading"><%= "#{@followers.count}個Followers"%></div>
+					<table class="table-body">
+						<tbody>
+							<% @followers.each do |follower| %>
+								<tr scope="row" class="my-followings">
+									<td class="user-avatar">
+										<%= image_tag "http://via.placeholder.com/350x150", size:"75" %>
+										<%#= image_tag follower.avatar, size: "30", class: "img-rounded" %>
+									</td>
+									<td class="text-primary"><%= follower.name%></td>
+								</tr>
+							<%end%>
+						</tbody>
+						
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="row">
+				<div class="panel panel-default">
+					<div class="panel-heading"><%= "#{@commented_restaurants.count}個已評論餐廳"%></div>
+					<div class="panel-body">
+						<% @commented_restaurants.each do |restaurant| %>
+							<div class="my-restaurant">
+								<div>
+									<%= image_tag "/fake_images/restaurants/00#{rand(0..9)}.jpg", size:"150x100" %>
+									<%#= link_to image_tag(restaurant.image, width: '100px'), restaurant_path(restaurant.id)%>		
+								</div>
+								<p class="text-primary"><%= restaurant.name%></p>
+							</div>
+						<%end%>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel panel-default">
+				<div class="panel-heading"><%= "#{@favourite_restaurants.count}個收藏餐廳"%></div>
+				<div class="panel-body">
+					<% @favourite_restaurants.each do |restaurant| %>
+						<div class="my-restaurant">
+							<div>
+								<%= image_tag "/fake_images/restaurants/00#{rand(0..9)}.jpg", size:"150x100" %>
+								<%#= link_to image_tag(restaurant.image, width: '100px'), restaurant_path(restaurant.id)%>
+							</div>
+							<p class="text-primary"><%= restaurant.name%></p>
+						</div>
+					<%end%>
+				</div>
+			</div>	
+	</div>
 		</div>
 	</div>
+	
 </div>
