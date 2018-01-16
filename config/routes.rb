@@ -30,6 +30,8 @@ Rails.application.routes.draw do
 
   resources :followships, only: [:create, :destroy]
 
+  resources :friendships, only: [:create, :destroy]
+
   namespace :admin do
   	resources :restaurants
   	resources :categories
