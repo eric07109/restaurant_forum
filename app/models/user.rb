@@ -47,7 +47,7 @@ class User < ApplicationRecord
   end
 
   def all_friends
-    (self.friends + self.frienders).uniq!
+    (self.friends + self.frienders).uniq
   end
 
 

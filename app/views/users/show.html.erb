@@ -14,10 +14,10 @@
 		<div class="col-md-3 user-profile-follow">
 			<div class="row">
 				<div class="panel panel-default">
-					<div class="panel-heading"><%= "#{@user.all_friends.count}個Friend"%></div>
+					<div class="panel-heading"><%= "#{@all_friends.count}個Friend"%></div>
 					<table class="table-body">
 						<tbody>
-							<% @user.all_friends.each do |friend| %>
+							<% @all_friends.each do |friend| %>
 								<tr scope="row" class="my-followings">
 									<td class="user-avatar">
 										<%= image_tag "http://via.placeholder.com/350x150", size:"75" %>

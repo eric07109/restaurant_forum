@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 		@favourite_restaurants = @user.favourite_restaurants.uniq
 		@followings = @user.followings
 		@followers = @user.followers
+		@all_friends = @user.all_friends
 	end
 
 	def edit
